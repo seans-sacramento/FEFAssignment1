@@ -41,5 +41,4 @@ export class Employee{
 
         return true;
     }
-
 }
