@@ -1,6 +1,6 @@
 import type {IEmployee} from  "./iemployee.ts";
 
-export class Employee{
+export abstract class Employee implements IEmployee{
     public age : number;
     public rank : number;
     public ssn : string;
@@ -41,4 +41,10 @@ export class Employee{
 
         return true;
     }
+    abstract displayInformation(): void;
+
+    abstract calculateCompensation(): number;
+
+    abstract saveEmployee(): boolean;
+    
 }

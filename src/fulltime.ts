@@ -1,4 +1,4 @@
-import { Employee } from "./employee";
+import { Employee } from "./employee.ts";
 
 export class FullTimeEmployee extends Employee{
     salary : number;
@@ -39,8 +39,32 @@ export class FullTimeEmployee extends Employee{
 
         return overtimePay;
     }
-    
+
     calculateCompensation(): number {
         return this.salary + this.calculateSalary();
+    }
+
+    displayInformation(): void {
+        console.log("Full-Time Employee");
+        console.log(`Age: ${this.age}`);
+        console.log(`Rank: ${this.rank}`);
+        console.log(`SSN: ${this.ssn}`);
+        console.log(`Salary: $${this.salary}`);
+        console.log(`Overtime Hours: ${this.overtimeHours}`);
+        console.log(`Total Compensation: $${this.calculateCompensation()}`);
+    }
+
+    saveEmployee(): boolean {
+        const ageValid = this.validateAge();
+        const rankValid = this.validateRank();
+        const ssnValid = this.validateSSN();
+
+        if (ageValid && rankValid && ssnValid) {
+            console.log("Full-Time Employee saved successfully.");
+            return true;
+        }
+
+        console.log("Full-Time Employee was not saved.");
+        return false;
     }
 }
